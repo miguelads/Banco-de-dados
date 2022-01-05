@@ -1,0 +1,161 @@
+TSQL - TRANSACT CICLE
+
+------- Conceito de Banco de dados ---------------
+Banco de dados é um conjunto organizado de dados, tipicamente organizado em um formato eletronico.
+
+Tipos de banco de dados contemplados na certificação.
+- flat-type databases
+- hierarchical databases
+- relacional databases
+
+--------flat-type databases----------
+São tipos de dados simplistas em design e plano, o proposito deles é manter o registro de linhas, eles tornam o processo e desempenho muito rapido. Se encontra em arquivos: .txt, .csv, .ini.
+Eles são conhecidos como bidimensionais como linha e colunas.
+
+-----------------hierarchical databases---------------------
+é semelhante a uma arvore genialogica, uma estrutura de uma arvore.
+ele funciona por tabela onde cada pai pode ter varios filhos porém cada filho pode ter apenas um pai e uma tabela pai pode ter varias tabelas filhos ligada a ela.
+
+---------------------relacional databases-----------------------
+É semelhante ao modelo Hierarquico, diferente do modelo hierarquico uma tabela filha pode ter varios pais.
+
+----------------Tipos de Entidade----------------------
+(Entidade Forte) = Sua existencia independe da entidade relacionada, ou seja ela n depende de outra entidade para existir.
+
+Ex: EMPREGADO--------<Possui>-----------<DEPENDENTE>
+       |                                     |
+     FORTE                                 FRACA
+
+(Entidade Fraca) = depende de outra para existir.
+
+---------------CONCEITOS DENTRO DAS ENTIDADES-------------------------
+           SÃO ELAS: GENERALIZAÇÃO E ESPECIALIZAÇÃO
+
+FUNCIONA COMO SE FOSSE HERANÇA EM ORIENTAÇÃO OBJETO.
+
+GENERALIZAÇÃO: QUANDO EU QUERO AGRUPAR EM VIRTUDE DE SEMELHANÇA DE ATRIBUTOS.
+
+ESPECIALIZAÇÃO: QUANDO TENHO ENTIDADE COM CARACTERISTICAS PROPIAS.
+
+EXISTE DOIS TIPOS DE GENERALIZAÇÃO (TOTAL E PARCIAL).
+
+quando eu generalizo: eu vou pegar os atributos em comum em ambas tabelas e cria se uma super entidade com estes atributos podendo também chamar de entidade pai.
+
+quando eu especializo:eu subdivido uma tabela ou um conjunto de tabelas, basiados nos seus atributos especificos. ou seja atributos que só existem nas tabelas filhas ou especificas. 
+
+Exemplo: as entidades filhas da generalização.
+
+Generalização/Especialização Total:Toda vez que eu tiver uma entidade genérica, obrigatóriamente eu tenho que ter uma entidade especializada.
+
+Generalização/Especialização Parcial: Nem toda entidade genérica vai se torna uma especializada.
+
+Entidade Associativa: Geralmente ela surge em relacionamentos N x N e ela vai ser responsavel por ligar duas ou mais tabelas.
+
+--------------------Relacionamentos --------------------------
+quando uma entidade se relaciona com a outra
+chamamos de relacionamento binario.
+
+   ENTIDADE 1--------<>--------2 ENTIDADE
+
+Temos o relacionamento ternario que envolve 03 tabelas.
+
+      ENTIDADE 1-------< >-------2ENTIDADE
+                        |
+                    ENTIDADE 3
+
+obs: alguns relacionamentos ternários podem ser convertidos em relacionamentos binarios.
+
+curiosidade: um relacionamento ternário pode esta ocultando uma tabela(Associativa).
+
+Auto Relacionamento: quando uma entidade esta associada a uma ou mais ocorrencia da mesma entidade. EX:
+
+ FUNCIONARIO-----------<CHEFIA>
+            <----------
+
+------------------------Atributos------------------------ 
+Atributos são propiedades da entidades: e eles podem ser classificado como:
+- Simples
+- composto
+- opcional
+- multivalorado
+- determinante
+
+**Simples**
+Eles assumen apednas um valor por ocorrencia.Também conhecido como atributos monovalorados.
+
+**Composto**
+são atributos que podem ser divididos em outros atributos.
+Ex: 
+      Funcionario-----O nome
+                 -----O identidade-----O numero
+                                  -----O orgao emissor
+                                  -----O data emissao
+ele é decomposto em atributos da propia entidade ou seja da própia tabela.
+  
+   ex:
+                 Funcionario-----O nome
+                            -----O identidade
+                            -----O orgao emissor
+                            -----O numero
+                            -----O data emissao
+ 
+***Atributos Opcionais***
+São atributos que não possuem obrigatóriedade de ocorrencia.
+
+Funcionario-----O cnh
+           -----O reservista --> é um atributo opcional so homen tem mulher não.
+           -----O nome
+           -----O matricula
+
+***Atributos Multvalorados***
+São atributos que podem assumir mais de um valor por ocorrencia.
+outra caracteristica de um atributo mult valorado quando ele começa a parecer com uma tabela.
+
+obs:  os atributos multvalorados, são convertidos em uma nova entidade, e tem um atributo que se relaciona a sua tabela de origem.
+   
+EMPREGADO------0 matricula
+         ------O nome
+         ------O endereco
+         ------O dependente(0,n) atributo multvalorado
+
+são convertidos em uma nova entidade, e tem um atributo que se relaciona a sua tabela de origem.
+
+EMPREGADO----0 matricula  ------<possui>-------DEPENDENTE ----0 sequencia
+         ----O nome                                       ----O nome
+         ----O emdereco
+         ----0 sequencia
+
+*** Determinante ***
+é um atributo ou um conjunto de atributos que tem a capacidade de indentificar unicamente uma ocorrencia.
+conhecidos como identificadores como chave primaria ou chave estrangeira.
+
+temos dois tipos de identificadores dos atributos determinantes são eles 
+
+simples: quando só tem um identificador.
+composto: quando tem mais de um identificador.
+
+---------------Cardinalidades----------------------------------
+Cardinalidades é o número de ocorrencia uma entidade se relaciona com a outra
+ex:
+      A (0,1)-------------(0,N) B
+
+temos treis tipos de cardinalida 1 para N, N para N e 1 para 1
+
+(Minima,Maxima) = as cardinalidades a máxima na direita e a minima na esquerda.
+
+se as entidades forem tiverem o relacionamento
+
+ (1,1) ---- (1,1) = são fundidas em uma única tabela.
+ (1,n) ---- (0,1) = a chave estranjeira cai na tabela que tenha a cardinalidade N.
+ (0,n) -------(0,n) = cria-se uma nova tabela, chamada tabela associativa e a referencia dessas tabela cai na nova entidade criada. 
+ 
+  (1,1) ---- (0,1) = neste caso a entidade que tem 0 na minima vai ser a entidade fraca. Ou seja a referencia da entidade forte cai na entidade fraca.
+
+
+
+
+
+
+
+
+

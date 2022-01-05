@@ -1,0 +1,36 @@
+Normalização: é a eliminação de dados redundantes de determinado dominio ou negocio.
+
+Para normalização seguimos 03 passos.
+
+1 - Tradução inicial das entidades e respectivos atributos.
+2 - Tradução de relacionamentos e respectivos atributos.
+3 - Tradução de generalização e especialização.
+
+
+REGRAS DAS FORMAS NORMAIS
+
+ PRIMEIRA REGRA (1)
+          (1ª FN)
+ - identificar as entidades.
+ - adicionar atributos indentificadores.
+ - eliminar conjunto de dados repitidos(multivalorados e compostos)
+ - não possuir tabelas aninhadas(como se tivesse uma tabela dentro da outra, campos que pode se indentificar uma tabela).
+
+           (2ª FN)
+ - encontrar-se na primeira FN.
+
+ - Verificar a existência de dependência funcional(quando um atributo determina outro exemplo a sigla federativa id_uf e nm_uf)
+      id_uf  | nm_uf 
+        PE   | Pernambuco
+        CE   | Ceára
+ - dependencia total 
+  Ocorre quando um ou mais atributos de uma entidade dependem totalmente da chave primária composta(2 ou mais chaves)
+
+ - dependencia parcial
+
+Ocorre quando os atributos apenas dependem  da sua chave primaria.
+ 
+           (3ª FN)
+
+ - encontrar-se na 2 FN.
+ - eliminar dependência transitivas.(é quando um atributo depende de outro atributo que não é chave primaria)

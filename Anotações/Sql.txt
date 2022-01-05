@@ -1,0 +1,35 @@
+Grupos de comandos SQL:
+
+DDL:DATA DEFINITION LANGUAGE - USADO PARA CRIAR, ALTERAR E DELETAR OBJETOS.
+ - USE: muda o contexto da janela de consulta
+ - CREATE: cria objetos no banco de dados
+ - ALTER: altera objetos no banco. 
+ - DROP: apaga objetos no banco.
+ - TRUNCATE - apaga todos os registros de uma tabela, reiniciando o indice das colunas autoincrementais.
+
+DML:DATA MANIPULATION LANGUAGE
+ - INSERT: inseri registros no banco
+ - UPDATE: atualiza registros no banco
+ - DELETE: deleta registros no banco.
+ - MERGE: executa operações de inserção, atualização ou exclusão em uma tabela de destino com base nos resultados de uma junção com uma tabela de origem.
+ - SELECT (NA PROVA CERTIFICAÇÃO FICA NESTE GRUPO)
+
+DCL:DATA CONTROL LANGUAGE
+ - GRANT: usado para dar permissão.
+ - REVOKE: desfaz uma permissão, seja um grant ou deny.
+ - DENY: nega permissões de acesso a dados.
+
+DTL:DATA TRANSACTION LANGUAGE
+ - BEGIN TRANSACTION: utilizado para iniciar uma transação.
+ - COMMIT: usado para gravar as trasações no banco.
+ - ROLLBACK: ultilizado para desfazer as alterações de uma transação do banco.
+
+DQL:DATA QUERY LANGUAGE
+ - SELECT: usado para consultas registros no banco.
+
+/////////////////////////////////////////////////////////////////////////////////
+
+para armazenar textos e datas no sql server entre aspas simples.
+cometarios sql server 
+linha: --
+bloco: /**/

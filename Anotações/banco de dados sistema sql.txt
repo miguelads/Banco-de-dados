@@ -1,0 +1,24 @@
+No Sql server possuimos alguns bancos de dados de sistemas.
+master, model, msdb, tempdb.
+
+
+Master: guarda informações da instancia instalada e configurações, nele esta toda
+informação que foi instalada no servidor.
+obs: nunca devemos apagalo... sempre que possivel fazer backup do banco master.
+
+Model: é um banco modelo, como se fosse um template.
+
+Tempdb: é um banco de dados temporario, é recriado sempre que uma instancia é reiniciada, no momento que é recriado ele utiliza o model.
+
+Msdb: da suporte ao sql agent, ele armazena as automatizações.
+
+O sql server, ele gera 2 tipos de arquivos MDF E LDF E podendo ter arquivos de dados secundarius chamados de NDF.
+
+MDF: armazena tudo que o usuário cria.
+NDF: faço particionamento de informação.
+LDF: protege o sql de falhas.
+
+
+
+
+
